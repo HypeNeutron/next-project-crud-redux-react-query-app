@@ -21,20 +21,20 @@
     {
       "id": 3,
       "name": "John Doe",
-      "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
       "email": "johnsodlier@gmail.com",
       "salary": "30000",
+      "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
       "birthday": "1970-01-03",
-      "status": "Active"
+      "status": "Inactive"
     },
     {
       "id": 4,
       "name": "surachet sriwijitkorn",
       "email": "surachat2014@gmail.com",
-      "salary": "30000",
+      "salary": "20000",
       "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
       "birthday": "2023-01-19",
-      "status": "Inactive"
+      "status": "Active"
     }
   ]
 }

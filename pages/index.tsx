@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { BiCheck, BiUserPlus, BiX } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
+import { BarLoader } from "react-spinners";
 
 import Form, { TFormRef } from "../components/Form";
 import Layout from "../components/Layout";
@@ -29,10 +30,14 @@ export default function Home() {
     isPaused,
     error,
     isError,
-  } = useQuery<TEmployee[], Error>(["employee"], () =>
-    axios.get("http://localhost:4000/employee").then((res) => {
-      return res.data;
-    })
+    isLoading,
+  } = useQuery<TEmployee[], Error>(
+    ["employee"],
+    () =>
+      axios.get("http://localhost:4000/employee").then((res) => {
+        return res.data;
+      }),
+    { refetchOnWindowFocus: false }
   );
   const dataEdit = useSelector(selectsDataEdit);
   const deleteID = useSelector(selectsDeleteID);
@@ -44,6 +49,17 @@ export default function Home() {
   }, []);
 
   if (!isMounted) return null;
+  if (isLoading)
+    return (
+      <Layout>
+        <div className="min-h-screen  ">
+          <div className="mt-52 flex justify-center items-center flex-col gap-5">
+            <h2>Loading</h2>
+            <BarLoader color="#7b8cba" />
+          </div>
+        </div>
+      </Layout>
+    );
 
   if (isPaused)
     return (
