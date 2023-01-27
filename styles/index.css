@@ -1,8 +1,22 @@
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .cell {
+    @apply px-7 py-2;
+  }
+  .input {
+    @apply border w-full px-3 py-2 focus:outline-none rounded-md;
+  }
+  .radio {
+    @apply appearance-none rounded-full h-4 w-4 checked:bg-green-500 border border-gray-300 checked:border-green-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer;
+  }
+}
