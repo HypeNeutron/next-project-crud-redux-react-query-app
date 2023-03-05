@@ -27,6 +27,7 @@ export type TFormProps = Omit<TEmployee, "name"> & {
 };
 
 export type TFormRef = { resetForm: () => void };
+const API_ENDPOINT = "http://localhost:4000/employee";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function Form(_props: object, ref: Ref<TFormRef>) {
@@ -34,14 +35,8 @@ function Form(_props: object, ref: Ref<TFormRef>) {
   const [isUpdated, setIsUpdated] = useState<boolean>(false);
   const dispatch = useDispatch();
   const selectDataEdit = useSelector(selectsDataEdit);
-  const postEmployee = usePostEmployee(
-    ["employee"],
-    "http://localhost:4000/employee"
-  );
-  const updateEmployee = usePutEmployee(
-    ["employee"],
-    "http://localhost:4000/employee"
-  );
+  const postEmployee = usePostEmployee(["employee"], API_ENDPOINT);
+  const updateEmployee = usePutEmployee(["employee"], API_ENDPOINT);
   const {
     handleSubmit,
     register,

@@ -52,7 +52,7 @@ export default function Home() {
   if (isLoading)
     return (
       <Layout>
-        <div className="min-h-screen  ">
+        <div className="min-h-screen">
           <div className="mt-52 flex justify-center items-center flex-col gap-5">
             <h2>Loading</h2>
             <BarLoader color="#7b8cba" />
